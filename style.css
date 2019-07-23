@@ -29,32 +29,31 @@ h3, p {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    text-align: center;
 }
 .player {
     color:#ED4C67;
-    font-size: 3rem;
+    font-size: 4rem;
+    margin-top: 6rem;
 }
 .score {
     color: #12CBC4;
     font-size: 2rem;
- }
- section {
+}
+section {
      margin: 0 2rem;
- }
- #pO {
-     text-align: right;
- }
+}
 #gameboard {
     margin: 0 .5rem 3rem;
     display: grid;
     grid-template-columns: 175px 175px 175px;
     grid-template-rows: 175px 175px 175px;
-    grid-gap: 1.5rem;
+    align-self: center;
+    /* grid-gap: .25rem; */
 }
-
 .box {
-    height: 10rem;
-    width: 10rem;
+    height: 8rem;
+    width: 8rem;
     border-radius: 5%;
     border: .75rem #0652DD solid;
     text-align: center;
@@ -62,5 +61,5 @@ h3, p {
     font-size: 6rem;
     color: #C4E538;
     opacity: .8;
-    line-height: 1.6;
+    line-height: 1.3;
 }
