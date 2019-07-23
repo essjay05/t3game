@@ -1,0 +1,66 @@
+/* font-family: 'Permanent Marker', cursive;
+font-family: 'Rock Salt', cursive; */
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL9LuaJ4B71_eZEoEjiFZFLxDdHDBzmvbif69KThkvmVXUqPoi");
+    object-fit: fill;
+    height: 1vh;
+}
+header {
+    display: flex;
+    justify-content: center;
+    color: #12CBC4;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3.5rem;
+}
+h1, h2 {
+    font-family: 'Permanent Marker', cursive;
+    opacity: .8;
+}
+h3, p {
+    font-family: 'Rock Salt', cursive;
+    opacity: .8;
+}
+.game {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.player {
+    color:#ED4C67;
+    font-size: 3rem;
+}
+.score {
+    color: #12CBC4;
+    font-size: 2rem;
+ }
+ section {
+     margin: 0 2rem;
+ }
+ #pO {
+     text-align: right;
+ }
+#gameboard {
+    margin: 0 .5rem 3rem;
+    display: grid;
+    grid-template-columns: 175px 175px 175px;
+    grid-template-rows: 175px 175px 175px;
+    grid-gap: 1.5rem;
+}
+
+.box {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 5%;
+    border: .75rem #0652DD solid;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 6rem;
+    color: #C4E538;
+    opacity: .8;
+    line-height: 1.6;
+}
