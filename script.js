@@ -19,6 +19,8 @@ $box.click(function() {
         clickedBoxes.push(boxId);
         // Add box Id to player xMoves array
         xMoves.push(boxId);
+            // Check if xMoves has a winning combo
+            
         // Switch to player O
         player = 'O';
     // Check if boxId is in clickedBoxes array and if player is O
@@ -29,6 +31,7 @@ $box.click(function() {
         clickedBoxes.push(boxId);
         // Add box Id to player xMoves array
         oMoves.push(boxId);
+            // Check if oMoves has a winning combo
         // Switch to player X
         player = 'X';  
     } else {
