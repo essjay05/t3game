@@ -3,9 +3,30 @@ var player = 'X';
 var clickedBoxes = [];
 var xMoves = [];
 var oMoves = [];
+// var winningCombos = [['A1','B1','C1'], 
+//                     ['A2','B2','C2'],
+//                     ['A3','B3','C3'],
+//                     ['A1','A2','A3'],
+//                     ['B1','B2','B3'],
+//                     ['C1','C2','C3'],
+//                     ['A1','B2','C3'],
+//                     ['C1','B2','A3']]
 
 console.log($box);
 
+function checkWin() {
+
+}
+
+function resetGame() {
+    player = 'X';
+    clickedBoxes = [];
+    xMoves = [];
+    oMoves = [];
+    $box.empty() = '';
+}
+
+// Select box and switch player function 
 $box.click(function() {
     var boxId = (event.target.id);
     var b = clickedBoxes.includes(boxId);
