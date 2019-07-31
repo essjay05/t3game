@@ -27,62 +27,39 @@ function checkWin(bId, player, pScore) {
     // Check for Row wins:
     if ( $box[0].innerHTML == player && $box[1].innerHTML == player && $box[2].innerHTML == player ) {
         console.log(player + ' Wins!');
-        if ( player == 'X' ) {
-            return xScore++;
-        } else {
-            return oScore++;
-        }
+        var p = ( player == 'X') ? xScore++ : oScore++;
+        return p;
+        // updateScore(player);
     } else if ( $box[3].innerHTML == player && $box[4].innerHTML == player && $box[5].innerHTML == player ) {
         console.log(player + ' Wins!');
-        if ( player == 'X' ) {
-            return xScore++;
-        } else {
-            return oScore++;
-        }
+        var p = ( player == 'X') ? xScore++ : oScore++;
+        return p;
     } else if ( $box[6].innerHTML == player && $box[7].innerHTML == player && $box[8].innerHTML == player ) {
         console.log(player + ' Wins!');
-        if ( player == 'X' ) {
-            return xScore++;
-        } else {
-            return oScore++;
-        }
+        var p = ( player == 'X') ? xScore++ : oScore++;
+        return p;
     // Check for Column wins:
     } else if ( $box[0].innerHTML == player && $box[3].innerHTML == player && $box[6].innerHTML == player ) {
         console.log(player + ' Wins!');
-        if ( player == 'X' ) {
-            return xScore++;
-        } else {
-            return oScore++;
-        }
+        var p = ( player == 'X') ? xScore++ : oScore++;
+        return p;
     } else if ( $box[1].innerHTML == player && $box[4].innerHTML == player && $box[7].innerHTML == player ) {
         console.log(player + ' Wins!');
-        if ( player == 'X' ) {
-            return xScore++;
-        } else {
-            return oScore++;
-        }
+        var p = ( player == 'X') ? xScore++ : oScore++;
+        return p;
     } else if ( $box[2].innerHTML == player && $box[5].innerHTML == player && $box[8].innerHTML == player ) {
         console.log(player + ' Wins!');
-        if ( player == 'X' ) {
-            return xScore++;
-        } else {
-            return oScore++;
-        }
+        var p = ( player == 'X') ? xScore++ : oScore++;
+        return p;
     // Check for Diagonal wins
     } else if ( $box[0].innerHTML == player && $box[4].innerHTML == player && $box[8].innerHTML == player ) {
         console.log(player + ' Wins!');
-        if ( player == 'X' ) {
-            return xScore++;
-        } else {
-            return oScore++;
-        }
+        var p = ( player == 'X') ? xScore++ : oScore++;
+        return p;
     } else if ( $box[2].innerHTML == player && $box[4].innerHTML == player && $box[6].innerHTML == player ) {
         console.log(player + ' Wins!');
-        if ( player == 'X' ) {
-            return xScore++;
-        } else {
-            return oScore++;
-        }
+        var p = ( player == 'X') ? xScore++ : oScore++;
+        return p;
     } else {
         console.log(`It's a tie!`);
     }
@@ -94,6 +71,17 @@ function resetGame() {
     xMoves = [];
     oMoves = [];
     $box.empty() = '';
+}
+
+function updateScore(player) {
+    if (player == 'X') {
+        xScore++;
+        $xScore.innerHTML = xScore;
+    } else {
+        oScore++;
+        $oScore.innerHTML = oScore;
+    }
+    
 }
 
 // Select box and switch player function 
