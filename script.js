@@ -1,3 +1,4 @@
+// Set global variables
 var $box = $('.box'),
     box = document.getElementsByClassName('box'),
     player = 'X',
@@ -5,17 +6,17 @@ var $box = $('.box'),
     xMoves = [],
     oMoves = [],
     xScore = 0,
-    $xScore = document.getElementById('scoreX');
+    $xScore = document.getElementById('scoreX'),
     oScore = 0,
     $oScore = document.getElementById('scoreO');
-    winningCombos = [['A1','B1','C1'],
-                    ['A2','B2','C2'],
-                    ['A3','B3','C3'],
-                    ['A1','A2','A3'],
-                    ['B1','B2','B3'],
-                    ['C1','C2','C3'],
-                    ['A1','B2','C3'],
-                    ['C1','B2','A3']];
+    // winningCombos = [['A1','B1','C1'],
+    //                 ['A2','B2','C2'],
+    //                 ['A3','B3','C3'],
+    //                 ['A1','A2','A3'],
+    //                 ['B1','B2','B3'],
+    //                 ['C1','C2','C3'],
+    //                 ['A1','B2','C3'],
+    //                 ['C1','B2','A3']];
 
 console.log(box);
 
@@ -61,17 +62,27 @@ function resetGame() {
     clickedBoxes = [];
     xMoves = [];
     oMoves = [];
+    off();
     $box.empty() = '';
 }
 
 function updateScore(player) {
     if (player == 'X') {
+        on();
         xScore++;
         $xScore.innerHTML = xScore;
     } else {
+        on();
         oScore++;
         $oScore.innerHTML = oScore;
     } 
+}
+// Overlay toggle for gameOver message / reset
+function on() {
+    document.getElementById("overlay").style.display = "block";
+} 
+function off() {
+    document.getElementById("overlay").style.display = "none";
 }
 
 // Select box and switch player function 
