@@ -5,6 +5,8 @@ var $box = $('.box'),
     clickedBoxes = [],
     xMoves = [],
     oMoves = [],
+    $winMsg = $('#winMsg'),
+    $tieMsg = $('#tieMsg'),
     xScore = 0,
     $xScore = document.getElementById('scoreX'),
     oScore = 0,
@@ -54,6 +56,7 @@ function checkWin(bId, player, pScore) {
         updateScore(player);
     } else if (clickedBoxes.length == 9) {
         console.log(`It's a tie!`);
+        $tieMsg.innerHTML = `It's a tie! Click reset to play again!`
         on();
     } else {
         console.log(`Next move.`)
@@ -71,17 +74,22 @@ function resetGame() {
 
 function updateScore(player) {
     if (player == 'X') {
-        on();
+        $winMsg.innerHTML = `Congrats, Player ${player}!  You've won!  Click reset to play again.`
+        on(player);
         xScore++;
         $xScore.innerHTML = xScore;
     } else {
-        on();
+        $winMsg.innerHTML = `Congrats, Player ${player}!  You've won!  Click reset to play again.`
+        on(player);
         oScore++;
         $oScore.innerHTML = oScore;
     } 
 }
+
 // Overlay toggle for gameOver message / reset
 function on() {
+    console.log($winMsg)
+    console.log($tieMsg)
     document.getElementById("overlay").style.display = "block";
 } 
 function off() {
