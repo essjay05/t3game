@@ -7,6 +7,7 @@ var $box = $('.box'),
     xScore = 0,
     $xScore = document.getElementById('scoreX');
     oScore = 0,
+    $oScore = document.getElementById('scoreO');
     winningCombos = [['A1','B1','C1'],
                     ['A2','B2','C2'],
                     ['A3','B3','C3'],
@@ -26,38 +27,62 @@ function checkWin(bId, player, pScore) {
     // Check for Row wins:
     if ( $box[0].innerHTML == player && $box[1].innerHTML == player && $box[2].innerHTML == player ) {
         console.log(player + ' Wins!');
-        return pScore++;
-        console.log(`${player} score is now ${pScore}`);
+        if ( player == 'X' ) {
+            return xScore++;
+        } else {
+            return oScore++;
+        }
     } else if ( $box[3].innerHTML == player && $box[4].innerHTML == player && $box[5].innerHTML == player ) {
         console.log(player + ' Wins!');
-        return pScore++;
-        console.log(`${player} score is now ${pScore}`);
+        if ( player == 'X' ) {
+            return xScore++;
+        } else {
+            return oScore++;
+        }
     } else if ( $box[6].innerHTML == player && $box[7].innerHTML == player && $box[8].innerHTML == player ) {
         console.log(player + ' Wins!');
-        pScore++;
-        console.log(`${player} score is now ${pScore}`);
+        if ( player == 'X' ) {
+            return xScore++;
+        } else {
+            return oScore++;
+        }
     // Check for Column wins:
     } else if ( $box[0].innerHTML == player && $box[3].innerHTML == player && $box[6].innerHTML == player ) {
         console.log(player + ' Wins!');
-        pScore++;
-        console.log(`${player} score is now ${pScore}`);
+        if ( player == 'X' ) {
+            return xScore++;
+        } else {
+            return oScore++;
+        }
     } else if ( $box[1].innerHTML == player && $box[4].innerHTML == player && $box[7].innerHTML == player ) {
         console.log(player + ' Wins!');
-        pScore++;
-        console.log(`${player} score is now ${pScore}`);
+        if ( player == 'X' ) {
+            return xScore++;
+        } else {
+            return oScore++;
+        }
     } else if ( $box[2].innerHTML == player && $box[5].innerHTML == player && $box[8].innerHTML == player ) {
         console.log(player + ' Wins!');
-        pScore++;
-        console.log(`${player} score is now ${pScore}`);
+        if ( player == 'X' ) {
+            return xScore++;
+        } else {
+            return oScore++;
+        }
     // Check for Diagonal wins
     } else if ( $box[0].innerHTML == player && $box[4].innerHTML == player && $box[8].innerHTML == player ) {
         console.log(player + ' Wins!');
-        pScore++;
-        console.log(`${player} score is now ${pScore}`);
+        if ( player == 'X' ) {
+            return xScore++;
+        } else {
+            return oScore++;
+        }
     } else if ( $box[2].innerHTML == player && $box[4].innerHTML == player && $box[6].innerHTML == player ) {
         console.log(player + ' Wins!');
-        pScore++;
-        console.log(`${player} score is now ${pScore}`);
+        if ( player == 'X' ) {
+            return xScore++;
+        } else {
+            return oScore++;
+        }
     } else {
         console.log(`It's a tie!`);
     }
@@ -87,7 +112,7 @@ $box.click(function() {
         xMoves.push(boxId);
             // Check if xMoves has a winning combo
             checkWin(boxId, player, xScore);
-            console.log('xScore is: ' + xScore);
+            console.log('xScore is: ' + xScore + '   |   ' + 'oScore is: ' + oScore );
             $xScore.innerHTML = xScore;
         // Switch to player O
         player = 'O';
@@ -102,7 +127,8 @@ $box.click(function() {
         oMoves.push(boxId);
             // Check if oMoves has a winning combo
             checkWin(boxId, player, oScore);
-            $xScore.innerHTML = oScore;
+            console.log('xScore is: ' + xScore + '   |   ' + 'oScore is: ' + oScore );
+            $oScore.innerHTML = oScore;
         // Switch to player X
         player = 'X';  
     } else {
