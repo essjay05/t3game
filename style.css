@@ -9,7 +9,7 @@ body {
     object-fit: fill;
     height: 1vh;
 }
-header, footer {
+header, footer, #gameOver {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -87,4 +87,5 @@ section {
     background-color: rgba(0,0,0,0.5);
     z-index: 2;
     cursor: pointer;
+    text-align: center;
   }
