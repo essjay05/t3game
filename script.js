@@ -52,8 +52,11 @@ function checkWin(bId, player, pScore) {
     } else if ( $box[2].innerHTML == player && $box[4].innerHTML == player && $box[6].innerHTML == player ) {
         console.log(player + ' Wins!');
         updateScore(player);
-    } else {
+    } else if (clickedBoxes.length == 9) {
         console.log(`It's a tie!`);
+        on();
+    } else {
+        console.log(`Next move.`)
     }
 }
 
