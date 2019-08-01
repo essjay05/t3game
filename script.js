@@ -8,9 +8,9 @@ var $box = $('.box'),
     $winMsg = $('#winMsg'),
     $tieMsg = $('#tieMsg'),
     xScore = 0,
-    $xScore = document.getElementById('scoreX'),
+    $xScore = $('#scoreX'),
     oScore = 0,
-    $oScore = document.getElementById('scoreO');
+    $oScore = $('#scoreO');
     // winningCombos = [['A1','B1','C1'],
     //                 ['A2','B2','C2'],
     //                 ['A3','B3','C3'],
@@ -20,13 +20,16 @@ var $box = $('.box'),
     //                 ['A1','B2','C3'],
     //                 ['C1','B2','A3']];
 
-console.log(box);
+console.log($oScore);
 
 function checkWin(bId, player, pScore) {
     // console.log('inside checkWin');
     // console.log('Box ID: ' + bId);
-    console.log('Player: ' + player);
+
+    console.log('overlayMsg below ');
+    console.log($('.overlayMsg'));
     console.log('box innerhtml' + $box[0].innerHTML);
+    $tieMsg[0].innerText = '';
     // Check for Row wins:
     if ( $box[0].innerHTML == player && $box[1].innerHTML == player && $box[2].innerHTML == player ) {
         console.log(player + ' Wins!');
@@ -56,7 +59,8 @@ function checkWin(bId, player, pScore) {
         updateScore(player);
     } else if (clickedBoxes.length == 9) {
         console.log(`It's a tie!`);
-        $tieMsg[0].innerHTML = `It's a tie!`
+        $winMsg[0].innerHTML = '';
+        $tieMsg[0].innerHTML = `It's a tie!`;
         on();
     } else {
         console.log(`Next move.`)
@@ -70,18 +74,22 @@ function resetGame() {
     oMoves = [];
     off();
     $box.empty() = '';
+    $('.overlayMsg').empty() = '';
+
 }
 
 function updateScore(player) {
     
     if (player == 'X') {
-        $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`
+        $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`;
+        $tieMsg[0].innerHTML = '';
         on();
         xScore++;
         $xScore.innerHTML = xScore;
     } else {
         console.log('inside updateScore function X')
-        $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`
+        $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`;
+        $tieMsg[0].innerHTML = '';
         on();
         oScore++;
         $oScore.innerHTML = oScore;
