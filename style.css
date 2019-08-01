@@ -13,6 +13,7 @@ header, footer, #gameOver {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-content: center;
     align-items: center;
     font-family: 'Permanent Marker', cursive;
     font-size: 3.5rem;
@@ -24,6 +25,10 @@ h1, h2 {
 h3, p, a {
     font-family: 'Rock Salt', cursive;
     opacity: .85;
+    color: #d1d8e0;
+}
+p {
+    font-size: 1.75rem;
 }
 .title {
     color: #12CBC4;
@@ -37,9 +42,10 @@ h3, p, a {
 }
 .resetBtn {
     color: #fff200;
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 4rem;
+    margin: 0px .75rem;
     cursor: pointer;
+    font-family: 'Permanent Marker', cursive;
 }
 .player {
     color:#ED4C67;
@@ -88,4 +94,23 @@ section {
     z-index: 2;
     cursor: pointer;
     text-align: center;
+  }
+  .xStyle {
+    color:#a55eea;
+  }
+  .oStyle {
+    color: #fa8231;
+  }
+
+  .overlayMsg {
+    font-size: 5rem;
+    transform: rotate(345deg);
+    margin: 11rem 0px 6rem;
+  }
+  #tieMsg {
+    color: #a5b1c2;
+    font-size: 10rem;
+  }
+  #winMsg {
+    color: #fa8231;
   }

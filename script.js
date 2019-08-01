@@ -23,10 +23,10 @@ var $box = $('.box'),
 console.log(box);
 
 function checkWin(bId, player, pScore) {
-    console.log('inside checkWin');
-    console.log('Box ID: ' + bId);
+    // console.log('inside checkWin');
+    // console.log('Box ID: ' + bId);
     console.log('Player: ' + player);
-    console.log($box[0].innerHTML);
+    console.log('box innerhtml' + $box[0].innerHTML);
     // Check for Row wins:
     if ( $box[0].innerHTML == player && $box[1].innerHTML == player && $box[2].innerHTML == player ) {
         console.log(player + ' Wins!');
@@ -56,7 +56,7 @@ function checkWin(bId, player, pScore) {
         updateScore(player);
     } else if (clickedBoxes.length == 9) {
         console.log(`It's a tie!`);
-        $tieMsg.innerHTML = `It's a tie! Click reset to play again!`
+        $tieMsg[0].innerHTML = `It's a tie!`
         on();
     } else {
         console.log(`Next move.`)
@@ -73,14 +73,16 @@ function resetGame() {
 }
 
 function updateScore(player) {
+    
     if (player == 'X') {
-        $winMsg.innerHTML = `Congrats, Player ${player}!  You've won!  Click reset to play again.`
-        on(player);
+        $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`
+        on();
         xScore++;
         $xScore.innerHTML = xScore;
     } else {
-        $winMsg.innerHTML = `Congrats, Player ${player}!  You've won!  Click reset to play again.`
-        on(player);
+        console.log('inside updateScore function X')
+        $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`
+        on();
         oScore++;
         $oScore.innerHTML = oScore;
     } 
@@ -88,8 +90,6 @@ function updateScore(player) {
 
 // Overlay toggle for gameOver message / reset
 function on() {
-    console.log($winMsg)
-    console.log($tieMsg)
     document.getElementById("overlay").style.display = "block";
 } 
 function off() {
@@ -106,6 +106,7 @@ $box.click(function() {
     if (b != true && player === 'X') {
         // Insert X into selected box
         document.getElementById(boxId).innerHTML = player;
+        
         // Add box ID to clickedBoxes array
         clickedBoxes.push(boxId);
         // Add box Id to player xMoves array
