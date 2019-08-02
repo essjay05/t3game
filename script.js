@@ -78,23 +78,23 @@ function resetGame() {
 }
 
 function updateScore(player) {
-    
     if (player == 'X') {
         xScore++;
         $xScore[0].innerHTML = xScore;
-        $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`;
-        $tieMsg[0].innerHTML = '';
+        gameOver(player);
         on();
     } else {
-        console.log('inside updateScore function X')
         oScore++;
         $oScore[0].innerHTML = oScore;
-        console.log($oScore);
-        $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`;
-        $tieMsg[0].innerHTML = '';
+        gameOver(player);
         on();
-        
     } 
+}
+
+function gameOver(player) {
+    // console.log(`inside gameOver function`)
+    $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`;
+    $tieMsg[0].innerHTML = '';
 }
 
 // Overlay toggle for gameOver message / reset
@@ -116,18 +116,14 @@ $box.click(function() {
     if (b != true && player === 'X') {
         // Insert X into selected box
         document.getElementById(boxId).innerHTML = player;
-        
         // Add box ID to clickedBoxes array
         clickedBoxes.push(boxId);
         // Add box Id to player xMoves array
         xMoves.push(boxId);
             // Check if xMoves has a winning combo
             checkWin(player, xScore);
-            
-            $xScore.innerHTML = xScore;
         // Switch to player O
         player = 'O';
-        
     // Check if boxId is in clickedBoxes array and if player is O
     } else if (b != true && player === 'O') {
         // Insert X into selected box

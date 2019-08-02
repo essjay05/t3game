@@ -105,6 +105,7 @@ section {
     font-size: 5rem;
     transform: rotate(345deg);
     margin: 11rem 0px 6rem;
+    line-height:.8;
   }
   #tieMsg {
     color: #a5b1c2;
