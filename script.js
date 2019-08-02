@@ -25,11 +25,10 @@ console.log($oScore);
 function checkWin(bId, player, pScore) {
     // console.log('inside checkWin');
     // console.log('Box ID: ' + bId);
-
-    console.log('overlayMsg below ');
-    console.log($('.overlayMsg'));
-    console.log('box innerhtml' + $box[0].innerHTML);
-    $tieMsg[0].innerText = '';
+    // console.log('overlayMsg below ');
+    // console.log($('.overlayMsg'));
+    
+    // $tieMsg[0].innerText = '';
     // Check for Row wins:
     if ( $box[0].innerHTML == player && $box[1].innerHTML == player && $box[2].innerHTML == player ) {
         console.log(player + ' Wins!');
@@ -81,20 +80,32 @@ function resetGame() {
 function updateScore(player) {
     
     if (player == 'X') {
-        $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`;
-        $tieMsg[0].innerHTML = '';
-        on();
+        // Add 1 win to X Score
         xScore++;
-        $xScore.innerHTML = xScore;
+        // Add X score update to scoreboard
+        // $xScore.innerHTML = xScore;
+        console.log($xScore);
+        // Change overlay Player win msg
+        gameOver(player);
+        
+        // Clear tie win
+        
     } else {
         console.log('inside updateScore function X')
-        $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`;
-        $tieMsg[0].innerHTML = '';
-        on();
         oScore++;
-        $oScore.innerHTML = oScore;
+        // $oScore.innerHTML = oScore;
+        gameOver(player);
+        // $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`;
+        // $tieMsg[0].innerHTML = '';
+        on();
     } 
 }
+function gameOver(player) {
+    console.log(`Inside gameOver function`)
+    $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`;
+    $tieMsg[0].innerHTML = '';
+    on();
+};
 
 // Overlay toggle for gameOver message / reset
 function on() {
