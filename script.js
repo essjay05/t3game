@@ -22,13 +22,13 @@ var $box = $('.box'),
 
 console.log($oScore);
 
-function checkWin(bId, player, pScore) {
+function checkWin(player, pScore) {
     // console.log('inside checkWin');
     // console.log('Box ID: ' + bId);
 
-    console.log('overlayMsg below ');
-    console.log($('.overlayMsg'));
-    console.log('box innerhtml' + $box[0].innerHTML);
+    // console.log('overlayMsg below ');
+    // console.log($('.overlayMsg'));
+    // console.log('box innerhtml' + $box[0].innerHTML);
     $tieMsg[0].innerText = '';
     // Check for Row wins:
     if ( $box[0].innerHTML == player && $box[1].innerHTML == player && $box[2].innerHTML == player ) {
@@ -75,30 +75,32 @@ function resetGame() {
     off();
     $box.empty() = '';
     $('.overlayMsg').empty() = '';
-
 }
 
 function updateScore(player) {
     
     if (player == 'X') {
+        xScore++;
+        $xScore[0].innerHTML = xScore;
         $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`;
         $tieMsg[0].innerHTML = '';
         on();
-        xScore++;
-        $xScore.innerHTML = xScore;
     } else {
         console.log('inside updateScore function X')
+        oScore++;
+        $oScore[0].innerHTML = oScore;
+        console.log($oScore);
         $winMsg[0].innerHTML = `<h1>Player ${player} won!</h1>`;
         $tieMsg[0].innerHTML = '';
         on();
-        oScore++;
-        $oScore.innerHTML = oScore;
+        
     } 
 }
 
 // Overlay toggle for gameOver message / reset
 function on() {
     document.getElementById("overlay").style.display = "block";
+    console.log('xScore is: ' + xScore + '   |   ' + 'oScore is: ' + oScore );
 } 
 function off() {
     document.getElementById("overlay").style.display = "none";
@@ -120,8 +122,8 @@ $box.click(function() {
         // Add box Id to player xMoves array
         xMoves.push(boxId);
             // Check if xMoves has a winning combo
-            checkWin(boxId, player, xScore);
-            console.log('xScore is: ' + xScore + '   |   ' + 'oScore is: ' + oScore );
+            checkWin(player, xScore);
+            
             $xScore.innerHTML = xScore;
         // Switch to player O
         player = 'O';
@@ -135,9 +137,7 @@ $box.click(function() {
         // Add box Id to player xMoves array
         oMoves.push(boxId);
             // Check if oMoves has a winning combo
-            checkWin(boxId, player, oScore);
-            console.log('xScore is: ' + xScore + '   |   ' + 'oScore is: ' + oScore );
-            $oScore.innerHTML = oScore;
+            checkWin(player, oScore);
         // Switch to player X
         player = 'X';  
     } else {
