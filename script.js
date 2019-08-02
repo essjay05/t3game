@@ -22,6 +22,10 @@ var $box = $('.box'),
 
 console.log($oScore);
 
+function checkWin2(bId, player) {
+    console.log(`in checkWin2`);
+}
+
 function checkWin(player, pScore) {
     // console.log('inside checkWin');
     // console.log('Box ID: ' + bId);
@@ -30,6 +34,7 @@ function checkWin(player, pScore) {
     // console.log($('.overlayMsg'));
     // console.log('box innerhtml' + $box[0].innerHTML);
     $tieMsg[0].innerText = '';
+    
     // Check for Row wins:
     if ( $box[0].innerHTML == player && $box[1].innerHTML == player && $box[2].innerHTML == player ) {
         console.log(player + ' Wins!');
@@ -40,6 +45,7 @@ function checkWin(player, pScore) {
     } else if ( $box[6].innerHTML == player && $box[7].innerHTML == player && $box[8].innerHTML == player ) {
         console.log(player + ' Wins!');
         updateScore(player);
+
     // Check for Column wins:
     } else if ( $box[0].innerHTML == player && $box[3].innerHTML == player && $box[6].innerHTML == player ) {
         console.log(player + ' Wins!');
@@ -50,6 +56,7 @@ function checkWin(player, pScore) {
     } else if ( $box[2].innerHTML == player && $box[5].innerHTML == player && $box[8].innerHTML == player ) {
         console.log(player + ' Wins!');
         updateScore(player);
+
     // Check for Diagonal wins
     } else if ( $box[0].innerHTML == player && $box[4].innerHTML == player && $box[8].innerHTML == player ) {
         console.log(player + ' Wins!');
@@ -57,6 +64,8 @@ function checkWin(player, pScore) {
     } else if ( $box[2].innerHTML == player && $box[4].innerHTML == player && $box[6].innerHTML == player ) {
         console.log(player + ' Wins!');
         updateScore(player);
+    
+    // Non-win checks (tie or no win yet)
     } else if (clickedBoxes.length == 9) {
         console.log(`It's a tie!`);
         $winMsg[0].innerHTML = '';
@@ -81,11 +90,13 @@ function updateScore(player) {
     if (player == 'X') {
         xScore++;
         $xScore[0].innerHTML = xScore;
+        $('#winMsg').css('color', '#a55eea');
         gameOver(player);
         on();
     } else {
         oScore++;
         $oScore[0].innerHTML = oScore;
+        $('#winMsg').css('color', '#26de81');
         gameOver(player);
         on();
     } 
@@ -108,26 +119,34 @@ function off() {
 
 // Select box and switch player function 
 $box.click(function() {
-    var boxId = (event.target.id);
-    var b = clickedBoxes.includes(boxId);
-    // console.log(`Clicked boxID is ${boxId} and player is ${player} and it is ${clickedBoxes.includes(boxId)} that this ID is in the clickedBoxes array`);
-    
+    // Set boxId to id from current clicked box
+    let boxId = (event.target.id);
+    // Check if boxId is within the previously clickedBoxes array
+    let b = clickedBoxes.includes(boxId);
+    let $boxId = $(`#${boxId}`)[0]
+    console.log($boxId);
+
     // Check if boxId is in clickedBoxes array and if player is X
     if (b != true && player === 'X') {
         // Insert X into selected box
-        document.getElementById(boxId).innerHTML = player;
+        $(`#${boxId}`).css('color', '#a55eea');
+        $boxId.innerHTML = player;
+        
+        // document.getElementById(boxId).innerHTML = player;
         // Add box ID to clickedBoxes array
         clickedBoxes.push(boxId);
         // Add box Id to player xMoves array
         xMoves.push(boxId);
             // Check if xMoves has a winning combo
             checkWin(player, xScore);
+            checkWin2(boxId, player);
         // Switch to player O
         player = 'O';
     // Check if boxId is in clickedBoxes array and if player is O
     } else if (b != true && player === 'O') {
+        $(`#${boxId}`).css('color', '#26de81');
         // Insert X into selected box
-        document.getElementById(boxId).innerHTML = player;
+        $boxId.innerHTML = player;
         // Add box ID to clickedBoxes array
         clickedBoxes.push(boxId);
         // Add box Id to player xMoves array
