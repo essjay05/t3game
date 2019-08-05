@@ -91,7 +91,7 @@ function resetScore() {
     $xScore[0].innerHTML = xScore,
     $oScore[0].innerHTML = oScore;
     resetGame();
-    console.log(`in resetScore: xScore = ${xScore} and oScore = ${oScore}`)
+    // console.log(`in resetScore: xScore = ${xScore} and oScore = ${oScore}`)
 }
 
 function updateScore(player) {
@@ -132,7 +132,7 @@ $box.click(function() {
     // Check if boxId is within the previously clickedBoxes array
     let b = clickedBoxes.includes(boxId);
     let $boxId = $(`#${boxId}`)[0]
-    console.log($boxId);
+    // console.log($boxId);
 
     // Check if boxId is in clickedBoxes array and if player is X
     if (b != true && player === 'X') {
