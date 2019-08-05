@@ -14,16 +14,22 @@
     <div id="overlay">
         <div id="gameOver">
             <h1 class="overlayMsg"><span id="winMsg"></span><span id="tieMsg"></span></h1>
-            <p>Click <span class="resetBtn" onclick="resetGame()">Reset</span> To Play Again</p>
+            <p>Click <span class="reset" onclick="resetGame()">Reset</span> To Play Again</p>
         </div>
     </div>
     <header>
         <h1 class="title">Tic Tac Toe</h1>
     </header>
     <main class="game">
-        <section id="pX">
-            <h2 class="player">Player X<span id="pX"></span></h2>
-            <h3 class="score">Wins: <span id="scoreX">0</span></h3>
+        <section id="scoreBoard">
+            <section id="pX">
+                <h2 class="player X">Player X<span id="pX"></span></h2>
+                <p class="score">Wins: <span id="scoreX">0</span></p>
+            </section>
+            <section id="pO">
+                <h2 class="player O">Player O<span id="pO"></span></h2>
+                <p class="score">Wins: <span id="scoreO">0</span></p>
+            </section>
         </section>
         <section id="gameboard">
             <div class="box" id="A1"></div>
@@ -38,14 +44,10 @@
             <div class="box" id="C2"></div>
             <div class="box" id="C3"></div>    
         </section>
-        <section id="pO">
-            <h2 class="player">Player O<span id="pO"></span></h2>
-            <h3 class="score">Wins: <span id="scoreO">0</span></h3>
-        </section>
     </main>
     <footer>
-        <h2 class="resetBtn" onclick="resetGame()">Reset Game</h2>
-        <h2 class="resetScore" onclick="resetScore()"></h2>
+        <h2 class="reset" onclick="resetGame()">Reset Board</h2>
+        <h2 class="reset" onclick="resetScore()">Reset Score</h2>
     </footer>
 </body>
 </html>

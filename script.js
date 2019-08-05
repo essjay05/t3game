@@ -85,6 +85,14 @@ function resetGame() {
     $box.empty() = '';
     $('.overlayMsg').empty() = '';
 }
+function resetScore() {
+    xScore = 0,
+    oScore = 0,
+    $xScore[0].innerHTML = xScore,
+    $oScore[0].innerHTML = oScore;
+    resetGame();
+    console.log(`in resetScore: xScore = ${xScore} and oScore = ${oScore}`)
+}
 
 function updateScore(player) {
     if (player == 'X') {
@@ -96,7 +104,7 @@ function updateScore(player) {
     } else {
         oScore++;
         $oScore[0].innerHTML = oScore;
-        $('#winMsg').css('color', '#26de81');
+        $('#winMsg').css('color', '#26de81')
         gameOver(player);
         on();
     } 
