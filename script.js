@@ -147,7 +147,7 @@ $box.click(function() {
         xMoves.push(boxId);
             // Check if xMoves has a winning combo
             checkWin(player, xScore);
-            checkWin2(boxId, player);
+            // checkWin2(boxId, player);
         // Switch to player O
         player = 'O';
     // Check if boxId is in clickedBoxes array and if player is O
