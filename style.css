@@ -150,7 +150,7 @@ section {
         justify-items:center;
     }
     .title {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
     .player {
         margin: 0;
@@ -165,11 +165,35 @@ section {
         margin-top: 15rem;
     }
     .reset {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         line-height: .95;
     }
     p {
         font-size: .75rem;
+    }
+    #gameboard {
+        margin: .5rem;
+        display: grid;
+        grid-template-columns: 100px 100px 100px;
+        grid-template-rows: 100px 100px 100px;
+        align-items: center;
+        justify-items: center;
+        grid-gap: .25rem;
+    }
+    .box {
+        height: 5rem;
+        width: 5rem;
+        border-radius: 5%;
+        border: .5rem #0652DD solid;
+        text-align: center;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 6rem;
+        /* color: #2bcbba; */
+        opacity: .65;
+        line-height: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
  }
 
