@@ -76,14 +76,27 @@ function checkWin(player, pScore) {
     }
 }
 
+function eraseBoard() {
+    // console.log('inside erase board: boxes array below')
+    var boxes = $box;
+    // console.log(boxes);
+    for (var b = 0; boxes.length >= 0; b ++) {
+        console.log(boxes[b]);
+        boxes[b].innerHTML = ''; 
+    }
+}
+
 function resetGame() {
+    // console.log($box);
     player = 'X';
     clickedBoxes = [];
     xMoves = [];
     oMoves = [];
     off();
-    $box.empty() = '';
-    $('.overlayMsg').empty() = '';
+    eraseBoard();
+    // $('.box').innerHTML() = '';
+    // console.log($box);
+    $('.overlayMsg').innerHTML() = '';
 }
 function resetScore() {
     xScore = 0,
@@ -93,6 +106,7 @@ function resetScore() {
     resetGame();
     // console.log(`in resetScore: xScore = ${xScore} and oScore = ${oScore}`)
 }
+
 
 function updateScore(player) {
     if (player == 'X') {
