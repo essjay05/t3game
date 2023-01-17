@@ -36,35 +36,20 @@ function checkWin(player, pScore) {
     $tieMsg[0].innerText = '';
     
     // Check for Row wins:
-    if ( $box[0].innerHTML == player && $box[1].innerHTML == player && $box[2].innerHTML == player ) {
+    if (( $box[0].innerHTML == player && $box[1].innerHTML == player && $box[2].innerHTML == player ) ||
+        ( $box[3].innerHTML == player && $box[4].innerHTML == player && $box[5].innerHTML == player ) ||
+        ( $box[6].innerHTML == player && $box[7].innerHTML == player && $box[8].innerHTML == player ) ||
+        // Column Wins
+        ( $box[0].innerHTML == player && $box[3].innerHTML == player && $box[6].innerHTML == player ) ||
+        ( $box[1].innerHTML == player && $box[4].innerHTML == player && $box[7].innerHTML == player ) ||
+        ( $box[2].innerHTML == player && $box[5].innerHTML == player && $box[8].innerHTML == player ) ||
+        // Diagonal wins
+        ( $box[0].innerHTML == player && $box[4].innerHTML == player && $box[8].innerHTML == player ) ||
+        ( $box[2].innerHTML == player && $box[4].innerHTML == player && $box[6].innerHTML == player )) {
         console.log(player + ' Wins!');
+        pScore++
         updateScore(player);
-    } else if ( $box[3].innerHTML == player && $box[4].innerHTML == player && $box[5].innerHTML == player ) {
-        console.log(player + ' Wins!');
-        updateScore(player);
-    } else if ( $box[6].innerHTML == player && $box[7].innerHTML == player && $box[8].innerHTML == player ) {
-        console.log(player + ' Wins!');
-        updateScore(player);
-
-    // Check for Column wins:
-    } else if ( $box[0].innerHTML == player && $box[3].innerHTML == player && $box[6].innerHTML == player ) {
-        console.log(player + ' Wins!');
-        updateScore(player);
-    } else if ( $box[1].innerHTML == player && $box[4].innerHTML == player && $box[7].innerHTML == player ) {
-        console.log(player + ' Wins!');
-        updateScore(player);
-    } else if ( $box[2].innerHTML == player && $box[5].innerHTML == player && $box[8].innerHTML == player ) {
-        console.log(player + ' Wins!');
-        updateScore(player);
-
-    // Check for Diagonal wins
-    } else if ( $box[0].innerHTML == player && $box[4].innerHTML == player && $box[8].innerHTML == player ) {
-        console.log(player + ' Wins!');
-        updateScore(player);
-    } else if ( $box[2].innerHTML == player && $box[4].innerHTML == player && $box[6].innerHTML == player ) {
-        console.log(player + ' Wins!');
-        updateScore(player);
-    
+        return
     // Non-win checks (tie or no win yet)
     } else if (clickedBoxes.length == 9) {
         console.log(`It's a tie!`);
