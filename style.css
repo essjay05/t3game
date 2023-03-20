@@ -234,13 +234,17 @@ footer a:focus {
     justify-content: center;
     align-items: center;
   }
+  footer {
+    flex-direction: column-reverse;
+  }
 }
 
-/* @media only screen and (max-width: 600px) {
-    body, footer, .game {
-        flex-direction: column;
-    }
-} */
+@media only screen and (max-width: 600px) {
+  footer ul {
+    flex-direction: column;
+    margin: 0.75rem auto;
+  }
+}
 
 /* // Large devices (desktops, 992px and up) */
 /* @media (min-width: 992px) { ... } */
