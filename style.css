@@ -3,199 +3,238 @@ font-family: 'Rock Salt', cursive; */
 
 /* ----------------- SETTING THE VIEWPORT ---------------- */
 @viewport {
-    width: device-width;
-    zoom: 1.0;
+  width: device-width;
+  zoom: 1;
 }
 @-ms-viewport {
-    width: device-width;
+  width: device-width;
 }
 
 /* ----------------- RESPONSIVE IMAGES ---------------- */
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 body {
-    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL9LuaJ4B71_eZEoEjiFZFLxDdHDBzmvbif69KThkvmVXUqPoi");
-    object-fit: fill;
-    height: 1vh;
-    -webkit-font-smoothing: antialiased;
-    letter-spacing: .02em;
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL9LuaJ4B71_eZEoEjiFZFLxDdHDBzmvbif69KThkvmVXUqPoi');
+  object-fit: fill;
+  height: 1vh;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.02em;
 }
-header, #gameOver {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 3.5rem;
-    text-align: center;
+header,
+#gameOver {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3.5rem;
+  text-align: center;
 }
-h1, h2 {
-    font-family: 'Permanent Marker', cursive;
-    opacity: .85;
+h1,
+h2 {
+  font-family: 'Permanent Marker', cursive;
+  opacity: 0.85;
 }
-h3, p, a {
-    font-family: 'Rock Salt', cursive;
-    opacity: .85;
-    color: #d1d8e0;
+h3,
+p,
+a {
+  font-family: 'Rock Salt', cursive;
+  opacity: 0.85;
+  color: #d1d8e0;
 }
 p {
-    font-size: 1.75rem;
+  font-size: 1.75rem;
 }
-.title, .score {
-    color: #12CBC4;
+.title,
+.score {
+  color: #12cbc4;
 }
-#scoreBoard, footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: center;
+#scoreBoard,
+.reset-actions-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
 }
 .reset {
-    color: #fff200;
-    font-size: 3rem;
-    margin: 0px .75rem;
-    cursor: pointer;
-    font-family: 'Permanent Marker', cursive;
+  color: #fff200;
+  font-size: 3rem;
+  margin: 1rem 2.75rem;
+  cursor: pointer;
+  font-family: 'Permanent Marker', cursive;
 }
 .player {
-    font-size: 4rem;
+  font-size: 4rem;
 }
 /* .score {
     font-size: 2rem;
 } */
 section {
-     margin: 0 3rem;
+  margin: 0 3rem;
 }
 .game {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
 }
 #gameboard {
-    margin: 1rem;
-    display: grid;
-    grid-template-columns: 125px 125px 125px;
-    grid-template-rows: 125px 125px 125px;
-    align-items: center;
-    justify-items: center;
-    grid-gap: .5rem;
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 125px 125px 125px;
+  grid-template-rows: 125px 125px 125px;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 0.5rem;
 }
 .box {
-    height: 6rem;
-    width: 6rem;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 5%;
+  border: 0.75rem #0652dd solid;
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 6rem;
+  /* color: #2bcbba; */
+  opacity: 0.65;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+  text-align: center;
+}
+.xStyle,
+.X {
+  color: #a55eea;
+}
+.oStyle,
+.O {
+  color: #26de81;
+}
+
+.overlayMsg {
+  font-size: 5rem;
+  transform: rotate(345deg);
+  margin: 15rem 0px 6rem;
+  line-height: 0.8;
+}
+#tieMsg {
+  color: #a5b1c2;
+  font-size: 10rem;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer li {
+  margin: 0 1rem;
+}
+
+footer a {
+  transition: 0.3s ease-in-out;
+  color: #12cbc4;
+  text-decoration: none;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.5rem;
+}
+
+footer a:hover,
+footer a:focus {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+
+/* // Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  body,
+  .game {
+    flex-direction: column;
+  }
+  section {
+    align-content: center;
+    justify-items: center;
+  }
+  .title {
+    font-size: 3.5rem;
+  }
+  .player {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 0.95;
+  }
+  .score {
+    font-size: 1rem;
+  }
+  .overlayMsg,
+  #tieMsg {
+    font-size: 3.5rem;
+    margin-top: 15rem;
+  }
+  .reset {
+    font-size: 1.5rem;
+    line-height: 0.95;
+  }
+  p {
+    font-size: 0.75rem;
+  }
+  #gameboard {
+    margin: 0.5rem;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 0.25rem;
+  }
+  .box {
+    height: 5rem;
+    width: 5rem;
     border-radius: 5%;
-    border: .75rem #0652DD solid;
+    border: 0.5rem #0652dd solid;
     text-align: center;
     font-family: 'Permanent Marker', cursive;
     font-size: 6rem;
     /* color: #2bcbba; */
-    opacity: .65;
+    opacity: 0.65;
     line-height: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
 }
-#overlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 2;
-    cursor: pointer;
-    text-align: center;
-  }
-  .xStyle, .X {
-    color:#a55eea;
-  }
-  .oStyle, .O {
-    color: #26de81;
-  }
-
-  .overlayMsg {
-    font-size: 5rem;
-    transform: rotate(345deg);
-    margin: 15rem 0px 6rem;
-    line-height:.8;
-  }
-  #tieMsg {
-    color: #a5b1c2;
-    font-size: 10rem;
-  }
-
-
-
-  /* // Small devices (landscape phones, 576px and up) */
-
-
-/* // Medium devices (tablets, 768px and up) */
-@media (max-width: 768px) { 
-    body, .game {
-        flex-direction: column;
-    }
-    section {
-        align-content: center;
-        justify-items:center;
-    }
-    .title {
-        font-size: 3.5rem;
-    }
-    .player {
-        margin: 0;
-        font-size:2rem;
-        line-height: .95;
-    }
-    .score {
-        font-size: 1rem;
-    }
-    .overlayMsg, #tieMsg {
-        font-size: 3.5rem;
-        margin-top: 15rem;
-    }
-    .reset {
-        font-size: 1.5rem;
-        line-height: .95;
-    }
-    p {
-        font-size: .75rem;
-    }
-    #gameboard {
-        margin: .5rem;
-        display: grid;
-        grid-template-columns: 100px 100px 100px;
-        grid-template-rows: 100px 100px 100px;
-        align-items: center;
-        justify-items: center;
-        grid-gap: .25rem;
-    }
-    .box {
-        height: 5rem;
-        width: 5rem;
-        border-radius: 5%;
-        border: .5rem #0652DD solid;
-        text-align: center;
-        font-family: 'Permanent Marker', cursive;
-        font-size: 6rem;
-        /* color: #2bcbba; */
-        opacity: .65;
-        line-height: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
- }
 
 /* @media only screen and (max-width: 600px) {
     body, footer, .game {
